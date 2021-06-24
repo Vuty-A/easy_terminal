@@ -1,0 +1,13 @@
+#!/bin/bash
+echo "Обновляем систему"
+sudo  apt-get install update -y
+echo "Устанавливаем любимый софт"
+sudo apt-get  install tmux vim zsh tree net-tools mc nmap git python3 python3-pip -y
+echo "zsh по умолчанию"
+chsh -s $(which zsh)
+echo "Установка ohmyzsh"
+sh -c "$(wget https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh -O -)" -y
+echo "Меняем тему в zsh"
+sed -i '11d' ~/.zshrc -y
+sed -i '11a ZSH_THEME="darkblood"' ~/.zshrc -y
+echo "Готово Хозяин!"
